@@ -1,0 +1,91 @@
+.review-list {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  /* Cada reseña como tarjeta */
+  .review-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Espacio entre autor, título y contenido */
+  }
+  
+  /* Autor de la reseña */
+  .review-author {
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: #333;
+  }
+  
+  /* Título de la reseña */
+  .review-title {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 0; /* elimina margenes raros */
+  }
+  
+  /* Contenido de la reseña */
+  .review-content {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0;
+  }
+  
+  /* Formulario de reseña */
+  .review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  /* Inputs y textarea del formulario */
+  .review-form input,
+  .review-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* para que padding no rompa el ancho */
+  }
+  
+  /* Botón de agregar reseña */
+  .review-form button {
+    align-self: flex-start; /* el botón a la izquierda */
+    padding: 0.5rem 1rem;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .review-form button:hover {
+    background-color: #357ab8;
+  }
+
+  .review-form input,
+.review-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* para que padding no rompa el ancho */
+  color: #333; /* color del texto al escribir */
+  background-color: #fff; /* fondo blanco */
+}
+
+/* Placeholder más claro pero no igual al texto */
+.review-form input::placeholder,
+.review-form textarea::placeholder {
+  color: #999;
+}
