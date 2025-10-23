@@ -1,45 +1,50 @@
 import React, { useState } from 'react';
-import api from '../utils/api';
 
-export default function ReviewForm ({ gameId, onCreate }) {
+export default function ReviewForm({ gameId, onCreate, onClose }) {
   const [title, setTitle] = useState('');
-  const [comment, setComment] = useState('');
+  const [content, setContent] = useState('');
+  const [rating, setRating] = useState(0);
 
-  const submit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (!title || !comment) {
-    return alert('Completa todos los campos');
-    }
-    
-    try {
-      const response = await api.post(`/games/${gameId}/reviews`, {
-        title,
-        comment,
-      });
-
-      setTitle('');
-      setComment('');
-
-      if (onCreate) onCreate(response.data); // envía la nueva reseña al padre
-    } catch (error) {
-      console.error(error);
-      alert('Error al enviar la reseña');
-    }
+    onCreate({ title, content, rating, gameId });
+    setTitle('');
+    setContent('');
+    setRating(0);
   };
 
   return (
-    <form onSubmit={submit} className='review-form'>
+    <form onSubmit={handleSubmit}>
+      <h3>Agregar reseña</h3>
+
       <input
-        placeholder='Título'
         value={title}
         onChange={e => setTitle(e.target.value)}
+        placeholder="Título"
+        required
       />
+
       <textarea
-        placeholder='Escribe tu reseña...'
-        value={comment}
-        onChange={e => setComment(e.target.value)}
+        value={content}
+        onChange={e => setContent(e.target.value)}
+        placeholder="Tu reseña"
+        required
       />
-      <button type='submit'>Agregar reseña</button>
+
+      <div>
+        <label>Calificación: </label>
+        <input
+          type="number"
+          value={rating}
+          onChange={e => setRating(Number(e.target.value))}
+          min="1"
+          max="5"
+          required
+        />
+      </div>
+
+      <button type="submit">Enviar</button>
+      <button type="button" onClick={onClose}>Cerrar</button>
     </form>
   );
 }

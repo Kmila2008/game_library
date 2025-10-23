@@ -2,12 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
-const gamesRouter = require('./routes/games');
-const reviewsRouter = require('./routes/reviews');
+
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+const gamesRouter = require('./routes/games');
+const reviewsRouter = require('./routes/reviews');
 
 app.use('/api/games', gamesRouter);
 app.use('/api/reviews', reviewsRouter);
@@ -17,7 +19,7 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/gameli
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(()=> {
-  console.log('Connected to MongoDB');
-  app.listen(PORT, ()=> console.log('Server running on port', PORT));
+  console.log('Conectado a MongoDB');
+  app.listen(PORT, ()=> console.log('Server corriendo en el puerto', PORT));
 })
-.catch(err => console.error('MongoDB connection error', err));
+.catch(err => console.error('MongoDB error conexión', err));

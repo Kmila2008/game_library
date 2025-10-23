@@ -1,14 +1,34 @@
 const API_BASE = process.env.REACT_APP_API_BASE || 'http://localhost:5001/api';
 
-async function request(path, options){
-  const res = await fetch(API_BASE+path, options);
-  if (!res.ok) throw new Error('API Error: '+res.status);
-  return res.json();
-}
-
-export default {
-  get: (path) => request(path, { method: 'GET' }),
-  post: (path, body) => request(path, { method: 'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) }),
-  put: (path, body) => request(path, { method: 'PUT', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) }),
-  delete: (path) => request(path, { method: 'DELETE' })
+const api = {
+  get: async (url) => {
+    const res = await fetch(`${API_BASE}${url}`);
+    if (!res.ok) throw new Error('Error en GET');
+    return res.json();
+  },
+  post: async (url, data) => {
+    const res = await fetch(`${API_BASE}${url}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) throw new Error('Error en POST');
+    return res.json();
+  },
+  put: async (url, data) => {
+    const res = await fetch(`${API_BASE}${url}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) throw new Error('Error en PUT');
+    return res.json();
+  },
+  delete: async (url) => {
+    const res = await fetch(`${API_BASE}${url}`, { method: 'DELETE' });
+    if (!res.ok) throw new Error('Error en DELETE');
+    return res.json();
+  }
 };
+
+export default api;
