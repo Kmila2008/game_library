@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './ReviewForm.css';
 
 export default function ReviewForm({ gameId, onCreate, onClose }) {
   const [title, setTitle] = useState('');
@@ -7,17 +8,33 @@ export default function ReviewForm({ gameId, onCreate, onClose }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onCreate({ title, content, rating, gameId });
+
+    const reviewData = {
+      title,
+      comment: content, // ✅ Backend usa "comment"
+      rating,
+      game: gameId // ✅ Backend usa "game"
+    };
+
+    onCreate(reviewData);
+
     setTitle('');
     setContent('');
     setRating(0);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>Agregar reseña</h3>
+    <form className="review-form" onSubmit={handleSubmit}>
+      
+      {/* Botón cerrar */}
+      <button type="button" className="close-btn" onClick={onClose}>
+        ✕
+      </button>
+
+      <h3 className="form-title">Agregar reseña</h3>
 
       <input
+        className="input-field"
         value={title}
         onChange={e => setTitle(e.target.value)}
         placeholder="Título"
@@ -25,16 +42,18 @@ export default function ReviewForm({ gameId, onCreate, onClose }) {
       />
 
       <textarea
+        className="input-field textarea-field"
         value={content}
         onChange={e => setContent(e.target.value)}
         placeholder="Tu reseña"
         required
       />
 
-      <div>
+      <div className="rating-container">
         <label>Calificación: </label>
         <input
           type="number"
+          className="number-input"
           value={rating}
           onChange={e => setRating(Number(e.target.value))}
           min="1"
@@ -43,8 +62,9 @@ export default function ReviewForm({ gameId, onCreate, onClose }) {
         />
       </div>
 
-      <button type="submit">Enviar</button>
-      <button type="button" onClick={onClose}>Cerrar</button>
+      <button type="submit" className="submit-btn">
+        Enviar
+      </button>
     </form>
   );
 }

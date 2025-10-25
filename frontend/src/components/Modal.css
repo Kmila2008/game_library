@@ -1,12 +1,16 @@
 .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 50, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 50;
-  }
+  position: fixed;
+  inset: 0;
+  background-color: rgba(3, 6, 23, 0.55); /* un poco más oscuro para contraste */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+
+  /* blur del fondo */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
   
   .modal-content {
     background: white;
@@ -34,4 +38,8 @@
   
   .review-form button:hover {
     background-color: #0056b3;
+  }
+
+  .modal-content {
+    position: relative;
   }

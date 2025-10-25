@@ -1,46 +1,33 @@
-import './ReviewList.css';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import api from '../utils/api';
-import ReviewForm from './ReviewForm';
 
-
-export default function ReviewList({ gameId }) {
+export default function ReviewList({ gameId, newReview }) {
   const [reviews, setReviews] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   const loadReviews = async () => {
     try {
-      const res = await api.get(`/reviews?gameId=${gameId}`);
-      setReviews(res);
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setLoading(false);
+      const data = await api.get(`/reviews?gameId=${gameId}`);
+      setReviews(data);
+    } catch (error) {
+      console.error('Error cargando reseñas', error);
     }
   };
 
   useEffect(() => {
     loadReviews();
-  }, [gameId]);
+  }, [gameId, newReview]); // 🔥 Se actualiza al crear una nueva reseña
 
-  if (loading) return <p>Cargando reseñas...</p>;
-  if (reviews.length === 0) return <p>No hay reseñas aún.</p>;
+  if (!reviews.length) return <p>No hay reseñas aún.</p>;
 
   return (
-
     <div className="review-list">
-      <h4>Reseñas:</h4>
       {reviews.map(r => (
         <div key={r._id} className="review-item">
-          <strong lassName="review-author">{r.author}</strong> 
-          <p className="review-title">{r.title}</p>
-          <p className="review-comment">{r.comment}</p>
+          <strong>{r.title}</strong>
+          <p>{r.comment}</p>
+          <small>⭐ {r.rating}</small>
         </div>
-      ))
-      }
-      
-      <ReviewForm gameId={gameId} onCreate={r => setReviews(prev => [r, ...prev])} />
-
+      ))}
     </div>
   );
 }
