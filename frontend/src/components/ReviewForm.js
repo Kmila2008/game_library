@@ -3,7 +3,7 @@ import './ReviewForm.css';
 
 export default function ReviewForm({ gameId, onCreate, onClose }) {
   const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [comment, setComment] = useState('');
   const [rating, setRating] = useState(0);
 
   const handleSubmit = (e) => {
@@ -11,15 +11,15 @@ export default function ReviewForm({ gameId, onCreate, onClose }) {
 
     const reviewData = {
       title,
-      comment: content, // ✅ Backend usa "comment"
+      comment,// ✅ Backend usa "comment"
       rating,
-      game: gameId // ✅ Backend usa "game"
+      gameId: gameId // ✅ Backend
     };
 
     onCreate(reviewData);
 
     setTitle('');
-    setContent('');
+    setComment('');
     setRating(0);
   };
 
@@ -43,8 +43,8 @@ export default function ReviewForm({ gameId, onCreate, onClose }) {
 
       <textarea
         className="input-field textarea-field"
-        value={content}
-        onChange={e => setContent(e.target.value)}
+        value={comment}
+        onChange={e => setComment(e.target.value)}
         placeholder="Tu reseña"
         required
       />

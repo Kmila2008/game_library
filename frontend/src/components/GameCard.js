@@ -25,6 +25,8 @@ export default function GameCard({ game, setGames }) {
   };
 
   const handleCreateReview = async (reviewData) => {
+    const saved = await api.post('/reviews', reviewData);
+    setNewReview(saved);
     try {
       console.log("📤 Enviando reseña...", reviewData);
       const saved = await api.post('/reviews', reviewData);
