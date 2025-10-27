@@ -25,7 +25,11 @@ export default function ReviewList({ gameId, newReview }) {
         <div key={r._id} className="review-item">
           <strong>{r.title}</strong>
           <p>{r.comment}</p>
-          <small>⭐ {r.rating}</small>
+          <small>
+          {Array.from({ length: 5 }, (_, i) => (
+          <span key={i}>{i < r.rating ? '⭐' : '☆'}</span>
+        ))}
+          </small>
         </div>
       ))}
     </div>

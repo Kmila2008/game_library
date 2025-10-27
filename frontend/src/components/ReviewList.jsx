@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from '../utils/api';
+import ReviewItem from './ReviewItem';
 import './ReviewList.css'; // estilos opcionales
 
 export default function ReviewList({ gameId, newReview }) {
@@ -7,7 +8,9 @@ export default function ReviewList({ gameId, newReview }) {
 
   const loadReviews = async () => {
     try {
-      const data = await api.get(`/reviews?gameId=${gameId}`);
+      
+      const Response = await api.get(`/reviews?gameId=${gameId}`);
+      console.log("🚀 Respuesta de la API:", Response);
       setReviews(Response.data);
     } catch (error) {
       console.error('Error cargando reseñas', error);
@@ -15,6 +18,7 @@ export default function ReviewList({ gameId, newReview }) {
   };
 
   useEffect(() => {
+    console.log("🔹 gameId:", gameId, "newReview:", newReview);
     if (gameId) {
       loadReviews();
     }

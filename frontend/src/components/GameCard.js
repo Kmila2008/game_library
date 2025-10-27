@@ -25,16 +25,15 @@ export default function GameCard({ game, setGames }) {
   };
 
   const handleCreateReview = async (reviewData) => {
-    const saved = await api.post('/reviews', reviewData);
-    setNewReview(saved);
     try {
+
+      const saved = await api.post('/reviews', reviewData); 
+      setNewReview(saved); 
+      setShowModal(false);
       console.log("📤 Enviando reseña...", reviewData);
-      const saved = await api.post('/reviews', reviewData);
       console.log("✅ Guardado:", saved);
 
-      setNewReview(saved);
-      setShowModal(false);
-
+  
     } catch (err) {
       console.error("❌ Error creando reseña:", err);
       alert("Error enviando la reseña");

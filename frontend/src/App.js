@@ -1,3 +1,5 @@
+import { Routes, Route } from 'react-router-dom';
+import GameDetails from './components/GameDetails';
 import React, { useEffect, useState } from 'react';
 import GameList from './components/GameList';
 import GameForm from './components/GameForm';
@@ -25,27 +27,35 @@ export default function App() {
   }, []);
 
   return (
-    <div className='app'>
-      <header className='topbar'>
-        <h1>Mi Biblioteca Gaming</h1>
-        <div className='controls'>
-          <input
-            placeholder='Buscar juegos...'
-            value={query}
-            onChange={e => setQuery(e.target.value)}
-          />
-          <button onClick={load}>Buscar</button>
-        </div>
-      </header>
-      <main className='main'>
-        <aside className='sidebar'>
-          <GameForm onCreate={g => setGames(prev => [g, ...prev])} />
-          <Stats games={games} />
-        </aside>
-        <section className='content'>
-          <GameList games={games} setGames={setGames} />
-        </section>
-      </main>
-    </div>
+    <Routes>
+      <Route path='/' element={
+        <>
+          <div className='app'>
+            <header className='topbar'>
+              <h1>Mi Biblioteca Gaming</h1>
+              <div className='controls'>
+                <input
+                  placeholder='Buscar juegos...'
+                  value={query}
+                  onChange={e => setQuery(e.target.value)}
+                />
+                <button onClick={load}>Buscar</button>
+              </div>
+            </header>
+            <main className='main'>
+              <aside className='sidebar'>
+                <GameForm onCreate={g => setGames(prev => [g, ...prev])} />
+                <Stats games={games} />
+              </aside>
+              <section className='content'>
+                <GameList games={games} setGames={setGames} />
+              </section>
+            </main>
+          </div>
+        </>
+      } />
+
+      <Route path='/game/:slug' element={<GameDetails />} />
+    </Routes>
   );
 }

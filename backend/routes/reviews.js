@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
 const Review = require('../models/Review');
 
 router.post('/', async (req, res) => {
@@ -30,7 +31,7 @@ router.get('/', async (req, res) => {
     const { gameId } = req.query;
     const filter = {};
 
-    if (gameId) filter.gameId = mongoose.Types.ObjectId(gameId);
+    if (gameId) filter.gameId = gameId
 
     const reviews = await Review.find(filter).sort({ createdAt: -1 });
     res.json(reviews);

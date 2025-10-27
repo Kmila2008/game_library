@@ -6,8 +6,16 @@ export default function ReviewForm({ gameId, onCreate, onClose }) {
   const [comment, setComment] = useState('');
   const [rating, setRating] = useState(0);
 
+  const [hoverRating, setHoverRating] = useState(0);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+
+    if (rating === 0) {
+      alert('Por favor, selecciona una calificación');
+      return;
+    }
 
     const reviewData = {
       title,
@@ -49,18 +57,22 @@ export default function ReviewForm({ gameId, onCreate, onClose }) {
         required
       />
 
-      <div className="rating-container">
-        <label>Calificación: </label>
-        <input
-          type="number"
-          className="number-input"
-          value={rating}
-          onChange={e => setRating(Number(e.target.value))}
-          min="1"
-          max="5"
-          required
-        />
-      </div>
+<div className="rating-container">
+  <label>Calificación: </label>
+  <div className="stars">
+    {[1,2,3,4,5].map((star) => (
+      <span
+        key={star}
+        className={`star ${star <= rating ? 'filled' : ''}`}
+        onMouseEnter={() => setHoverRating(star)}
+              onMouseLeave={() => setHoverRating(0)}
+        onClick={() => setRating(star)}
+      >
+        ★
+      </span>
+    ))}
+  </div>
+</div>
 
       <button type="submit" className="submit-btn">
         Enviar

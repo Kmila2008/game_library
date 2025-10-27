@@ -1,0 +1,41 @@
+.review-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #1e73ff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .review-content {
+    flex: 1;
+  }
+  
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .stars {
+    color: #f5c518; /* amarillo estilo YouTube */
+    font-size: 14px;
+  }
+  
+  .comment {
+    margin-top: 4px;
+    font-size: 14px;
+    color: #333;
+  }

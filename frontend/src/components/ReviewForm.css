@@ -108,3 +108,22 @@
   color: #155bcc;
   transform: scale(1.05);
 }
+
+.stars {
+  display: flex;
+  gap: 4px; /* espacio entre estrellas */
+}
+
+.star {
+  font-size: 24px;
+  color: #ccc;       /* gris por defecto */
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.star:hover,
+.star.filled {
+  color: #FFD700;    /* amarillo */
+  transform: scale(1.2);
+}
+
