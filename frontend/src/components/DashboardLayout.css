@@ -1,0 +1,117 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  height: 100vh;
+  background: radial-gradient(circle at top left, #1a1a2e, #0f0f1a);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* === SIDEBAR === */
+.sidebar {
+  background: linear-gradient(180deg, #261249 0%, #120822 100%);
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar h2 {
+  text-align: center;
+  color: #b084f9;
+  margin-bottom: 1rem;
+}
+
+.add-game {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.add-game input {
+  background: #1c1531;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem;
+  color: white;
+}
+
+.add-game button {
+  background: linear-gradient(90deg, #7a00ff, #b84aff);
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+}
+
+.add-game button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #b84aff;
+}
+
+.stats {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+  text-align: center;
+  color: #c9b5ff;
+}
+
+/* === MAIN CONTENT === */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+/* === TOPBAR === */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1a1230;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+}
+
+.search-area {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.search-area input {
+  background: #2a2147;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  padding: 0.6rem 1rem;
+  width: 300px;
+}
+
+.search-area button {
+  background: linear-gradient(90deg, #8f00ff, #c050ff);
+  border: none;
+  border-radius: 10px;
+  padding: 0.6rem 1.2rem;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-area button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #b84aff;
+}
+
+/* === CONTENIDO INTERIOR === */
+.content-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}

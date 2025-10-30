@@ -8,16 +8,16 @@ require('dotenv').config();
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/gamelib';
 
 const games = [
-  { title: 'Minecraft', genre: 'Sandbox', platform: 'PC', description: 'Build and explore', coverUrl: '' },
-  { title: 'Clash Royale', genre: 'Strategy', platform: 'Mobile', description: 'Real-time PvP card battles' },
-  { title: 'Valorant', genre: 'FPS', platform: 'PC', description: 'Tactical shooter' },
-  { title: 'Hollow Knight', genre: 'Metroidvania', platform: 'PC', description: 'Exploration and combat' },
-  { title: 'Stardew Valley', genre: 'Simulation', platform: 'PC', description: 'Farming and life sim' },
-  { title: 'The Legend of Zelda: Breath of the Wild', genre: 'Adventure', platform: 'Switch', description: 'Open-world adventure' },
-  { title: 'Among Us', genre: 'Party', platform: 'PC', description: 'Social deduction' },
-  { title: 'Rocket League', genre: 'Sports', platform: 'PC', description: 'Car soccer' },
-  { title: 'Celeste', genre: 'Platformer', platform: 'PC', description: 'Precision platforming' },
-  { title: 'The Witcher 3', genre: 'RPG', platform: 'PC', description: 'Open-world RPG' }
+  { title: 'Minecraft', genero: 'Sandbox', plataforma: 'PC', descripcion: 'Build and explore', coverUrl: '' },
+  { title: 'Clash Royale', genero: 'Strategy', plataforma 'Mobile', descripcion: 'Real-time PvP card battles' },
+  { title: 'Valorant', genero: 'FPS', plataforma: 'PC', description: 'Tactical shooter' },
+  { title: 'Hollow Knight', genero: 'Metroidvania', plataforma: 'PC', descripcion: 'Exploration and combat' },
+  { title: 'Stardew Valley', genero: 'Simulation', plataforma: 'PC', descripcion: 'Farming and life sim' },
+  { title: 'The Legend of Zelda: Breath of the Wild', genre: 'Adventure', plataforma: 'Switch', descripcion: 'Open-world adventure' },
+  { title: 'Among Us', genero: 'Party', plataforma: 'PC', descripcion: 'Social deduction' },
+  { title: 'Rocket League', genero: 'Sports', plataforma: 'PC', descripcion: 'Car soccer' },
+  { title: 'Celeste', genero: 'Platformer', plataforma: 'PC', descripcion: 'Precision platforming' },
+  { title: 'The Witcher 3', genero: 'RPG', plataforma: 'PC', descripcion: 'Open-world RPG' }
 ];
 
 mongoose.connect(MONGODB_URI).then(async ()=> {
