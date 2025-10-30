@@ -1,67 +1,65 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import ReviewList from './ReviewList';
 import ReviewForm from './ReviewForm';
-import api from '../utils/api';
 import './GameDetail.css';
 
-export default function GameDetail() {
-  const { slug } = useParams();
-  const [game, setGame] = useState(null);
+export default function GameDetails() {
+  const { state } = useLocation();
+  const [game, setGame] = useState(state?.game || null);
   const [showReviewForm, setShowReviewForm] = useState(false);
   const [newReview, setNewReview] = useState(null);
 
-  // Cargar los datos del juego
-  useEffect(() => {
-    const loadGame = async () => {
-      try {
-        const res = await api.get(`/games?slug=${slug}`);
-        if (res.data.length > 0) {
-          setGame(res.data[0]);
-        }
-      } catch (err) {
-        console.error('Error cargando el juego:', err);
-      }
-    };
-
-    loadGame();
-  }, [slug]);
-
-  const handleCreateReview = async (reviewData) => {
-    try {
-      const saved = await api.post('/reviews', reviewData);
-      setNewReview(saved); // Para refrescar la lista
-      setShowReviewForm(false);
-    } catch (err) {
-      console.error('Error creando reseña:', err);
-      alert('Error enviando la reseña');
-    }
-  };
+  const navigate = useNavigate();
 
   if (!game) return <p>Cargando juego...</p>;
 
+  const handleCreateReview = (review) => {
+    setNewReview(review);
+    setShowReviewForm(false);
+  };
+
+  const handlePlay = () => {
+    // Aquí asumimos que cada juego tiene un campo `playUrl` con la ruta para jugarlo
+    // Si no existe, puedes construirla desde el slug: `/play/${game.slug}`
+    navigate(game.playUrl || `/play/${game.slug}`);
+  };
+
   return (
     <div className="game-detail">
-      <div className="game-header">
-        <img src={game.coverUrl || ''} alt={game.title} className="game-cover" />
-        <h2>{game.title}</h2>
-        <p>{game.description}</p>
+      <div className="game-main">
+        {/* === CÍRCULO DE IMAGEN === */}
+        <div
+          className="game-image-circle"
+          style={{
+            backgroundImage: `url(${game.coverUrl || ''})`,
+          }}
+        />
+
+        {/* === DESCRIPCIÓN Y BOTÓN === */}
+        <div className="game-info">
+          <h2>{game.title}</h2>
+          <p>{game.description}</p>
+          <button className="play-button" onClick={handlePlay}>
+            Jugar ahora
+          </button>
+        </div>
+      </div>
+
+      {/* === RESEÑAS === */}
+      <div className="reviews-section">
+        <h3>Reseñas</h3>
+        {showReviewForm && (
+          <ReviewForm
+            gameId={game._id}
+            onCreate={handleCreateReview}
+            onClose={() => setShowReviewForm(false)}
+          />
+        )}
+        <ReviewList gameId={game._id} newReview={newReview} />
         <button onClick={() => setShowReviewForm(!showReviewForm)}>
           {showReviewForm ? 'Cancelar' : 'Agregar reseña'}
         </button>
-      </div>
-
-      {showReviewForm && (
-        <ReviewForm
-          gameId={game._id}
-          onCreate={handleCreateReview}
-          onClose={() => setShowReviewForm(false)}
-        />
-      )}
-
-      <div className="reviews-section">
-        <h3>Reseñas</h3>
-        <ReviewList gameId={game._id} newReview={newReview} />
       </div>
     </div>
   );

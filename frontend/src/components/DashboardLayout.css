@@ -1,117 +1,126 @@
+/* 🎮 === ESTILOS PRINCIPALES DEL DASHBOARD === */
 .dashboard {
   display: grid;
-  grid-template-columns: 270px 1fr;
+  grid-template-columns: 240px 1fr 300px;
   height: 100vh;
-  background: radial-gradient(circle at top left, #1a1a2e, #0f0f1a);
-  color: white;
-  font-family: 'Poppins', sans-serif;
+  background-color: #0f0b16;
+  color: #f4f4f4;
+  font-family: "Poppins", sans-serif;
 }
 
 /* === SIDEBAR === */
 .sidebar {
-  background: linear-gradient(180deg, #261249 0%, #120822 100%);
-  padding: 1.5rem 1rem;
+  background: linear-gradient(180deg, #3a0066, #150025);
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 1.5rem;
+  border-right: 2px solid #4b0082;
 }
 
-.sidebar h2 {
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #c084fc;
   text-align: center;
-  color: #b084f9;
-  margin-bottom: 1rem;
-}
-
-.add-game {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.add-game input {
-  background: #1c1531;
-  border: none;
-  border-radius: 8px;
-  padding: 0.6rem;
-  color: white;
-}
-
-.add-game button {
-  background: linear-gradient(90deg, #7a00ff, #b84aff);
-  border: none;
-  border-radius: 8px;
-  padding: 0.6rem;
-  font-weight: bold;
-  cursor: pointer;
-  color: white;
-}
-
-.add-game button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px #b84aff;
-}
-
-.stats {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 1rem;
-  text-align: center;
-  color: #c9b5ff;
-}
-
-/* === MAIN CONTENT === */
-.main-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding: 2rem;
-  overflow-y: auto;
 }
 
 /* === TOPBAR === */
 .topbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background: #1a1230;
-  border-radius: 12px;
+  justify-content: space-between;
   padding: 1rem 2rem;
-  box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+  background-color: #1a1127;
+  border-bottom: 2px solid #4b0082;
+  gap: 1rem;
+}
+
+.nav-links a {
+  margin-right: 1rem;
+  color: #f4f4f4;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #c084fc;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.topbar h2 {
+  font-size: 1.2rem;
+  color: #d8b4fe;
 }
 
 .search-area {
   display: flex;
-  gap: 0.6rem;
+  gap: 0.5rem;
 }
 
 .search-area input {
-  background: #2a2147;
+  background: #2a1b3d;
   border: none;
-  border-radius: 10px;
-  color: #fff;
-  padding: 0.6rem 1rem;
-  width: 300px;
+  padding: 0.5rem 1rem;
+  color: #f4f4f4;
+  border-radius: 5px;
 }
 
 .search-area button {
-  background: linear-gradient(90deg, #8f00ff, #c050ff);
+  background: #9333ea;
   border: none;
-  border-radius: 10px;
-  padding: 0.6rem 1.2rem;
   color: white;
-  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 .search-area button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 12px #b84aff;
+  background: #a855f7;
 }
 
-/* === CONTENIDO INTERIOR === */
+/* === CONTENIDO PRINCIPAL === */
+.main-content {
+  display: flex;
+  flex-direction: column;
+}
+
 .content-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
+  padding: 2rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* separa controles de GameList */
+}
+
+/* === PANEL DERECHO (DETALLES O EXTRA) === */
+.extra-panel {
+  background: linear-gradient(180deg, #1b0a30, #10051a);
+  border-left: 2px solid #4b0082;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+/* === SCROLL PERSONALIZADO === */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #6b21a8;
+  border-radius: 10px;
+}
+
+/* === TEXTO SIN JUEGOS === */
+.no-games {
+  color: #c084fc;
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 1.2rem;
 }
