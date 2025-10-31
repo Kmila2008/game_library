@@ -68,12 +68,7 @@ export default function GameCard({ game, setGames }) {
 
           <button onClick={remove}>Eliminar</button>
 
-          <button
-            className='open-reviews-btn'
-            onClick={() => setShowModal(true)}
-          >
-            Abrir reseña
-          </button>
+        
         </div>
 
         <div className='reviews'>

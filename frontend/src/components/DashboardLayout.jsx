@@ -1,27 +1,23 @@
-import React from "react"; import "./DashboardLayout.css"; 
-import { Link } from "react-router-dom";
+import React from "react";
+import "./DashboardLayout.css";
+import Navbar from './Navbar';
+
 export default function DashboardLayout({ sidebar, content, extra }) { 
+  return (
+    <>
+      <Navbar /> {/* ← Ponerlo fuera del grid */}
+      <div className="dashboard">
+        <aside className="sidebar">
+          <h2 className="logo">🎮 GameTracker</h2>
+          {sidebar}
+        </aside>
 
-  return ( 
-    <div className="dashboard">
-    <aside className="sidebar">
-      <h2 className="logo">🎮 GameTracker</h2>
-      {sidebar}
-    </aside>
+        <main className="main-content">
+          <section className="content-section">{content}</section>
+        </main>
 
-    <main className="main-content">
-      <div className="topbar">
-        <h2>👤 Jugador</h2>
-        <div className="search-area">
-          <input type="text" placeholder="Buscar juegos o reseñas..." />
-          <button>Buscar</button>
-        </div>
+        {extra && <aside className="extra-panel">{extra}</aside>}
       </div>
-
-      <section className="content-section">{content}</section>
-    </main>
-
-    {extra && <aside className="extra-panel">{extra}</aside>}
-  </div>
-);
+    </>
+  );
 }
