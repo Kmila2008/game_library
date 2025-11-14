@@ -1,0 +1,162 @@
+/* =====================================================
+   PLAY TIME TRACKER - Estilos principales
+   ===================================================== */
+
+/* 📌 Contenedor principal */
+.playtime-section {
+  padding: 1.7rem 1rem; /* 1.5rem arriba y abajo, 1rem lateral */
+  border-radius: 16px;
+  position: relative;
+  background-color: #1a1a1a; /* oscuro base */
+  box-shadow: 0 0 8px rgba(210, 138, 255, 0.4); /* borde difuso morado */
+}
+
+/* Margen extra si comparte sección con reviews */
+.playtime-section,
+.reviews-section {
+  margin-top: 3rem;
+}
+
+/* =====================================================
+   TITULOS DE SECCIÓN
+   ===================================================== */
+.playtime-section h3,
+.reviews-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #d28aff;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  letter-spacing: 1.2px;
+  text-shadow: 0 0 6px #d28aff, 0 0 12px #b54bff; /* 🌙 neón más suave */
+  position: relative;
+  padding-left: 2rem;
+}
+
+.playtime-section h3::after,
+.reviews-section h3::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  margin-left: 0.6rem;
+  margin-right: 2rem;  
+  background: linear-gradient(90deg, transparent, #d28aff, transparent);
+  border-radius: 5px;
+  box-shadow: 0 0 12px #d28aff, 0 0 20px #a200ff;
+}
+
+/* =====================================================
+   PLAYTIME CARD
+   ===================================================== */
+.playtime-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  border-radius: 16px;
+  margin: 0 auto 24px auto; /* centrar horizontalmente */
+  width: 95%; /* 🔹 reduce el ancho para no tocar los bordes */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+}
+
+.playtime-card:hover {
+  transform: translateY(-3px);
+}
+
+/* 📌 Sección izquierda: avatar y nombre */
+.playtime-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: auto; /* evita que toque los bordes */
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #a78bfa;
+  background: #2a2642;
+}
+
+.playtime-info h3 {
+  color: #f9fafb;
+  margin: 0;
+}
+
+.rank {
+  color: #a78bfa;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+/* 📌 Sección derecha: contador */
+.playtime-right {
+  text-align: center;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  }
+
+.counter button {
+  background: none !important;
+  border: none !important;
+  color: #d28aff !important; /* 💜 solo el signo en morado */
+  font-size: 1.6em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.1s ease;
+  outline: none !important; /* sin borde de foco */
+}
+
+.counter button:hover {
+  color: #b54bff !important;
+  transform: scale(1.1);
+}
+
+.counter span {
+  color: #facc15;
+  font-weight: 700;
+  font-size: 1.2em;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* Nota opcional */
+.note {
+  color: #9ca3af;
+  font-size: 0.8em;
+  margin-top: 6px;
+}
+
+/* =====================================================
+   🌞 Modo día
+   ===================================================== */
+body.light-mode .playtime-section,
+body.light-mode .playtime-card {
+  background: #ffffff;
+  color: #1a1a1a;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* =====================================================
+   🌑 Modo oscuro
+   ===================================================== */
+body.dark-mode .playtime-section,
+body.dark-mode .playtime-card {
+  background: #1a1a1a; /* contenedor oscuro */
+  color: #f5f5f5;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}

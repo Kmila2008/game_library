@@ -1,0 +1,97 @@
+.footer-section {
+  width: 100%;
+  padding: 2rem 0;
+  border-top: none;
+  display: flex;
+  justify-content: center;
+}
+
+.section-content {
+  text-align: center;
+  color: #dcd0ff;
+}
+
+.copyright-text {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #bda7ff;
+}
+
+.social-link-list {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.social-link {
+  font-size: 1.5rem;
+  color: #dcd0ff;
+  transition: 0.3s ease;
+}
+
+.social-link:hover {
+  color: #9a63ff;
+  transform: translateY(-3px);
+}
+
+.policy-text {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.policy-link {
+  color: #c8b3ff;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.policy-link:hover {
+  color: #ffffff;
+}
+
+.separator {
+  margin: 0 0.5rem;
+  color: #bda7ff;
+}
+
+/* 🌞 FOOTER — Modo Día (sin línea) */
+body.light-mode .footer-section {
+  
+    background: #f3e8ff; /* morado pastel claro */
+    border-top: none !important; /* 🚀 ELIMINA LA LÍNEA DEFINITIVAMENTE */
+
+}
+
+body.light-mode .section-content {
+  color: #4b0082;
+}
+
+body.light-mode .copyright-text {
+  color: #5b1491;
+}
+
+body.light-mode .social-link {
+  color: #6b21a8;
+}
+
+body.light-mode .social-link:hover {
+  color: #9333ea;
+}
+
+body.light-mode .policy-text {
+  color: #4b0082;
+  opacity: 1;
+}
+
+body.light-mode .policy-link {
+  color: #6b21a8;
+}
+
+body.light-mode .policy-link:hover {
+  color: #7e22ce;
+}
+
+body.light-mode .separator {
+  color: #6b21a8;
+}

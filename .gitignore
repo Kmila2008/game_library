@@ -1,0 +1,7 @@
+frontend/node_modules/
+
+# Caché de Babel
+frontend/node_modules/.cache/
+
+# Archivos de sistema
+.DS_Store

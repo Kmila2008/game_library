@@ -1,0 +1,60 @@
+/* CONTENEDOR PRINCIPAL */
+.dashboard {
+  display: flex;               /* <-- Antes faltaba flex-direction */
+  flex-direction: row;         /* Cada sección a la izquierda y contenido a la derecha */
+  gap: 0rem;
+  padding-left: 1.5rem;
+  min-height: auto;
+  flex: 1 0 auto;
+  box-sizing: border-box;
+  background-color: #0e0e18;
+}
+
+/* SIDEBAR */
+.sidebar {
+  background-color: #0e0e18;
+  padding: 2rem;
+  overflow-y: auto; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 360px;
+  box-sizing: border-box;
+}
+
+/* CONTENEDOR PRINCIPAL (content + extra) */
+.content-area {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 10px;
+  padding: 10px 20px 20px 10px;
+
+  /* ❗ ELIMINAR EL PROBLEMA */
+  overflow-y: visible !important; 
+  height: auto !important;        
+}
+
+/* LISTA DE JUEGOS */
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* PANEL EXTRA */
+.extra {
+  background-color: #1a1a2f;
+  border-radius: 16px;
+  padding: 20px;
+  height: fit-content;
+  position: sticky;
+  top: 80px;
+  box-shadow: 0 0 15px rgba(95, 241, 242, 0.3);
+}
+
+/* FOOTER — ahora sí podrá aparecer siempre */
+footer.footer {
+  flex-shrink: 0;
+}

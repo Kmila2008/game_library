@@ -1,0 +1,134 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* ← cambiar de 100vw a 100% */
+    max-width: 100%; /* asegura que no se pase */
+    background-color: #1a1127;
+    padding: 0.8rem 2rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    position: sticky; 
+    top: 0;
+    z-index: 100;
+    overflow-x: hidden; /* opcional, previene cualquier scroll */
+}
+  /* IZQUIERDA */
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #c084fc;
+    text-decoration: none;
+  }
+  
+  .nav-links a {
+    margin-right: 1rem;
+    color: #f4f4f4;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .nav-links a {
+    margin-right: 1rem;
+    color: #f4f4f4;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  /* DERECHA */
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .search-toggle {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #f4f4f4;
+  }
+  
+  .search-form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .search-form input {
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    border: none;
+    color: #222; /* texto más oscuro */
+    background-color: #fff; /* fondo blanco (por si es gris o transparente) */
+  }
+
+  .search-form button {
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #9333ea;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  
+  .search-form button:hover {
+    background-color: #a855f7;
+  }
+
+  .avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+  }
+
+  /* 🌙 Botón de modo oscuro */
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  margin-right: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.dark-mode-toggle:hover {
+  transform: scale(1.2);
+}
+
+/* 🌑 Modo oscuro global */
+body.dark-mode {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+/* Navbar oscuro */
+body.dark-mode .navbar {
+  background-color: #1e1e1e;
+}
+
+/* Links oscuros */
+body.dark-mode a {
+  color: #f5f5f5;
+}
+
+/* Inputs oscuros */
+body.dark-mode input {
+  background-color: #2a2a2a;
+  color: white;
+  border: 1px solid #444;
+}
+
+/* Botones en modo oscuro */
+body.dark-mode button {
+  background-color: #333;
+  color: #f5f5f5;
+}

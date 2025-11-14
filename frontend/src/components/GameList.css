@@ -1,0 +1,19 @@
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* siempre 3 columnas */
+  gap: 16px; /* espacio entre cards */
+  justify-items: center; /* centra las cards horizontalmente en cada celda */
+  padding: 16px; /* opcional, espacio desde los bordes */
+}
+
+.card {
+  width: 100%;       /* ocupa el ancho de la celda */
+  aspect-ratio: 1 / 1; /* mantiene proporción cuadrada */
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}

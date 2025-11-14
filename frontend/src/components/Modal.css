@@ -1,0 +1,61 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto; /* scroll si es necesario */
+  z-index: 50;
+  background-color: rgba(3, 6, 23, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+  
+  .modal-content {
+    background: #ffffff; /* fondo modo día */
+    padding: 2rem;
+    border-radius: 16px;
+    width: 90%;        /* ocupa casi todo el ancho disponible */
+    max-width: 500px;  /* ancho máximo */
+    box-sizing: border-box;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .review-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .review-form button:hover {
+    background-color: #0056b3;
+  }
+
+  .modal-content {
+    position: relative;
+  }
+
+
+
+
+  /* 🌞 Modo día - Modal */
+  body.light-mode .modal-content {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  /* 🌙 Modo noche - Modal (ya perfecto según dices) */
+body.dark-mode .modal-content {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}

@@ -1,0 +1,132 @@
+/* ============================================
+   ======== ESTRUCTURA GENERAL ========
+   ============================================ */
+   .stats-container {
+    padding: 20px;
+  }
+  
+  .charts,
+  .charts-dashboard {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .circle-chart {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .secondary-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .main-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  /* ============================================
+     ======== MODO DÍA ========
+     ============================================ */
+  .stats-container:not(.dark-bg) {
+    background-color: #f9f9ff; /* fondo lavanda claro */
+    color: #1a1a1a;
+  }
+  
+  .stats-container:not(.dark-bg) .chart-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .stats-container:not(.dark-bg) .chart-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #5e17eb; /* morado en modo día */
+    margin-bottom: 15px;
+  }
+  
+  .stats-container:not(.dark-bg) .chart-axis text {
+    fill: #333;
+    font-weight: bold;
+  }
+  
+  /* ============================================
+     ======== MODO OSCURO ========
+     ============================================ */
+  /* 🌙 Modo oscuro aplicado con clase en body */
+  body.dark-mode .stats-container {
+    background-color: #1f1f2e; /* fondo general oscuro */
+    color: #fff;
+  }
+  
+  /* 🌙 Recuadros de estadísticas */
+  body.dark-mode .chart-card {
+    background: #191922 !important; /* fondo oscuro uniforme */
+    color: #e9e9ff !important; /* texto legible */
+    border: 1px solid rgba(130, 70, 255, 0.12) !important; /* borde morado suave */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 6px 18px rgba(10, 8, 20, 0.55) !important;
+  }
+  
+  /* 🌙 Título de cada gráfica */
+  body.dark-mode .chart-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #cfc3ff !important; /* tono morado claro */
+    margin-bottom: 15px;
+  }
+  
+  /* 🌙 Texto de ejes / leyendas dentro de las gráficas */
+  body.dark-mode .chart-axis text,
+  body.dark-mode .recharts-legend-item-text,
+  body.dark-mode .recharts-text {
+    fill: #f1f1ff !important;
+    color: #f1f1ff !important;
+    font-weight: bold;
+  }
+  
+  /* 🌙 Gráficas secundarias */
+  body.dark-mode .secondary-charts .chart-card {
+    background: #15151a !important; /* más contraste entre recuadros */
+  }
+  
+  /* 🌙 Corrección de posibles estilos inline blancos */
+  body.dark-mode .chart-card[style] {
+    background-color: #191922 !important;
+  }
+
+  body.light-mode .recharts-tooltip-wrapper {
+    background-color: #f9f9f9 !important;
+    border: 1px solid #ccc !important;
+    color: #111 !important;
+    border-radius: 8px !important;
+    font-weight: 500;
+  }
+  
+  body.light-mode .recharts-tooltip-label {
+    color: #333 !important;
+    font-weight: 600 !important;
+  }
+
+  .custom-tooltip {
+    background-color: #ffffff !important;
+    border: 1px solid #ddd !important;
+    color: #222 !important;
+    border-radius: 8px;
+    padding: 8px;
+  }
+  
+  /* TOOLTIP — MODO OSCURO */
+  body.dark-mode .custom-tooltip {
+    background-color: #2c2c3e !important;
+    border: 1px solid #555 !important;
+    color: #ffffff !important;
+  }

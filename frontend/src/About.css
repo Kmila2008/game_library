@@ -1,0 +1,13 @@
+.about-page {
+    background-color: white;        /* Fondo blanco total */
+    color: #222;                    /* Texto oscuro */
+    min-height: 100vh;              /* Ocupa toda la pantalla */
+    padding: 2rem;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  /* 🌙 Versión modo oscuro */
+  body.dark-mode .about-page {
+    background-color: #0f172a;      /* Fondo oscuro */
+    color: #d8b4fe;                 /* Texto lila suave */
+  }
