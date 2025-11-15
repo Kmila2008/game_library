@@ -1,4 +1,5 @@
-:root{
+/* Variables globales */
+:root {
   --bg: #0b1020;
   --panel: #0f1724;
   --accent: linear-gradient(90deg, #00d4ff, #6a5cff);
@@ -6,25 +7,145 @@
   --text: #e6eef8;
 }
 
-*{box-sizing:border-box;font-family:Inter,Arial,Helvetica,sans-serif;}
-body,html,#root{height:100%;margin:0;background:radial-gradient(circle at 10% 10%,#07102a 0%, #02040a 60%);}
+/* Reset y tipografía */
+* {
+  box-sizing: border-box;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+}
 
-.app{max-width:1100px;margin:0 auto;background:var(--panel);border-radius:12px;overflow:visible;box-shadow:0 10px 30px rgba(0,0,0,0.6);}
-.topbar{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;background:linear-gradient(180deg,rgba(255,255,255,0.03),transparent);border-bottom:1px solid rgba(255,255,255,0.03);}
-.topbar h1{margin:0;font-size:20px;letter-spacing:0.6px;}
-.controls input{padding:8px 10px;border-radius:8px;border:0;background:var(--glass);color:var(--text);margin-right:8px;}
-.main{display:flex;}
-.sidebar{width:300px;padding:16px;border-right:1px solid rgba(255,255,255,0.03);}
-.content{flex:1;padding:16px;min-height:420px;}
-.card{display:flex;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:12px;border-radius:10px;margin-bottom:12px;align-items:center;gap:12px;}
-.cover{width:96px;height:96px;background:#071024;background-size:cover;border-radius:8px;border:1px solid rgba(255,255,255,0.03);}
-.info h3{margin:0 0 6px 0;}
-.meta{font-size:13px;color:rgba(255,255,255,0.6);margin:0 0 6px 0;}
-.actions button{margin-right:8px;padding:6px 8px;border-radius:8px;border:0;background:rgba(255,255,255,0.04);cursor:pointer;}
-.game-form input{width:100%;padding:8px;margin-bottom:8px;border-radius:8px;border:0;background:rgba(255,255,255,0.02);color:var(--text);}
-.game-form button{width:100%;padding:8px;border-radius:8px;border:0;background:linear-gradient(90deg,#00d4ff,#6a5cff);color:#041022;font-weight:700;}
-.stats{margin-top:12px;padding:12px;background:rgba(255,255,255,0.02);border-radius:8px;}
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  background: radial-gradient(circle at 10% 10%, #07102a 0%, #02040a 60%);
+}
 
+/* Contenedor principal */
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--panel);
+  border-radius: 12px;
+  overflow: visible;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* Barra superior */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 0.6px;
+}
+
+/* Controles de búsqueda */
+.controls input {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 0;
+  background: var(--glass);
+  color: var(--text);
+  margin-right: 8px;
+}
+
+/* Main con sidebar y contenido */
+.main {
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 300px;
+  padding: 16px;
+  border-right: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Contenido principal */
+.content {
+  flex: 1;
+  padding: 16px;
+  min-height: 420px;
+}
+
+/* Tarjeta de juego */
+.card {
+  display: flex;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Imagen de portada */
+.cover {
+  width: 96px;
+  height: 96px;
+  background: #071024;
+  background-size: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Información de la tarjeta */
+.info h3 {
+  margin: 0 0 6px 0;
+}
+
+.meta {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  margin: 0 0 6px 0;
+}
+
+/* Botones de acciones */
+.actions button {
+  margin-right: 8px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 0;
+  background: rgba(255,255,255,0.04);
+  cursor: pointer;
+}
+
+/* Formulario de juego */
+.game-form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  border: 0;
+  background: rgba(255,255,255,0.02);
+  color: var(--text);
+}
+
+.game-form button {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 0;
+  background: linear-gradient(90deg, #00d4ff, #6a5cff);
+  color: #041022;
+  font-weight: 700;
+}
+
+/* Estadísticas */
+.stats {
+  margin-top: 12px;
+  padding: 12px;
+  background: rgba(255,255,255,0.02);
+  border-radius: 8px;
+}
+
+/* Light mode */
 body.light-mode {
-  background: #f3e8ff !important; /* mismo morado pastel del footer */
+  background: #f3e8ff !important;
 }

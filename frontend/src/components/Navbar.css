@@ -1,18 +1,20 @@
+/* Contenedor principal de la navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%; /* ← cambiar de 100vw a 100% */
-    max-width: 100%; /* asegura que no se pase */
+    width: 100%; 
+    max-width: 100%; 
     background-color: #1a1127;
     padding: 0.8rem 2rem;
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     position: sticky; 
     top: 0;
     z-index: 100;
-    overflow-x: hidden; /* opcional, previene cualquier scroll */
+    overflow-x: hidden; 
 }
-  /* IZQUIERDA */
+
+/* Izquierda: logo + links */
   .nav-left {
     display: flex;
     align-items: center;
@@ -40,7 +42,7 @@
     font-weight: 500;
   }
   
-  /* DERECHA */
+/* Botón de búsqueda */
   .nav-right {
     display: flex;
     align-items: center;
@@ -55,6 +57,7 @@
     color: #f4f4f4;
   }
   
+/* Formulario de búsqueda */
   .search-form {
     display: flex;
     align-items: center;
@@ -79,18 +82,18 @@
     transition: 0.2s;
   }
   
-  
   .search-form button:hover {
     background-color: #a855f7;
   }
 
+/* Avatar */
   .avatar {
     width: 35px;
     height: 35px;
     border-radius: 50%;
   }
 
-  /* 🌙 Botón de modo oscuro */
+  /* Toggle modo oscuro */
 .dark-mode-toggle {
   background: none;
   border: none;
@@ -104,7 +107,7 @@
   transform: scale(1.2);
 }
 
-/* 🌑 Modo oscuro global */
+/* Modo oscuro global */
 body.dark-mode {
   background-color: #121212;
   color: #f5f5f5;

@@ -1,5 +1,5 @@
 import React from 'react';
-import './ReviewItem.css'; // Nuevo CSS
+import './ReviewItem.css'; 
 
 export default function ReviewItem({ review }) {
   return (

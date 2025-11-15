@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Review = require('../models/Review');
 
+/* Ruta para crear una nueva reseña */
 router.post('/', async (req, res) => {
 
   try {
@@ -23,7 +24,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-
+/* Ruta para obtener reseñas*/
 router.get('/', async (req, res) => {
 
     try { 
@@ -41,7 +42,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-
+/* Ruta para eliminar una reseña por ID */
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -64,4 +65,5 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+/* Exportar rutas de reseñas */
 module.exports = router;

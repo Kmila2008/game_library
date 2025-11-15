@@ -1,44 +1,41 @@
-// backend/controllers/statsController.js
 const Game = require('../models/Game');
 const Review = require('../models/Review');
 
-// Controlador para devolver estadísticas generales
+/* Obtener estadísticas generales */
 exports.getStats = async (req, res) => {
   try {
-    const games = await Game.find().sort({ createdAt: 1 }); // orden por fecha de creación
+
+    // Obtener todos los juegos, ordenados por fecha de creación
+    const games = await Game.find().sort({ createdAt: 1 }); 
 
     console.log("🎮 Plataformas encontradas:", games.map(g => g.platform));
 
+    
+// Totales generales
     const totalGames = games.length;
     const completed = games.filter(g => g.completed).length;
     const pending = totalGames - completed;
 
+// Totales por plataforma
     const pcTotal = games.filter(g => g.platform === "PC").length;
     const mobileTotal = games.filter(g => g.platform === "Mobile").length;
     const switchTotal = games.filter(g => g.platform === "Nintendo Switch").length;
 
-    // Horas jugadas por juego (para gráfico de líneas)
+// Horas jugadas por juego (para gráfico de líneas)
     const weeklyHours = games.map(g => ({
       game: g.title,        // nombre del juego
       hours: g.hoursPlayed || 0 // horas jugadas
     }));
 
-    // Distribución por género
+// por género
     const genreDistribution = {};
     games.forEach(g => {
       genreDistribution[g.genre] = (genreDistribution[g.genre] || 0) + 1;
     });
 
-    // Promedio general de estrellas
-    const reviews = await Review.find();
-    const averageRating = reviews.length
-      ? (reviews.reduce((s, r) => s + (r.rating || 0), 0) / reviews.length).toFixed(2)
-      : 0;
-
-    // Enviar todas las estadísticas
-    
     console.log("📡 Datos de weeklyHours enviados:", weeklyHours);
-
+    
+ // Enviar respuesta JSON con todas las estadísticas
     res.json({
       totalGames,
       completed,
@@ -46,9 +43,8 @@ exports.getStats = async (req, res) => {
       pcTotal,
       mobileTotal,
       switchTotal,
-      weeklyHours,         // importante: game + hours
+      weeklyHours,         
       genreDistribution,
-      averageRating
     });
 
   } catch (err) {

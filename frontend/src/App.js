@@ -9,8 +9,7 @@ import GameDetails from "./components/GameDetails";
 import DashboardLayout from "./components/DashboardLayout";
 import About from "./About";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";   // ⬅️ IMPORTANTE: No estaba importado
-
+import Footer from "./components/Footer";
 
 export default function App() {
   const [games, setGames] = useState([]);
@@ -45,20 +44,28 @@ export default function App() {
 
   return (
     <>
-      {/* 🔝 Navbar visible en todas las páginas */}
       <Navbar
         onSearch={handleSearch}
         darkMode={darkMode}
         setDarkMode={setDarkMode}
       />
 
-      {/* 🔻 Tus rutas */}
       <Routes>
         <Route
           path="/"
           element={
             <DashboardLayout
-              sidebar={<GameForm onCreate={(g) => setGames([...games, g])} />}
+              sidebar={
+                <div>
+                  <GameForm onCreate={(g) => setGames([...games, g])} />
+                  {/* Imagen debajo del formulario */}
+                  <img
+                    src="/images/Robotsito.png" // cambia por tu imagen
+                    alt="Decorativa"
+                    className="sidebar-image"
+                  />
+                </div>
+              }
               content={<GameList games={games} setGames={setGames} />}
               extra={<Stats />}
             />
@@ -78,7 +85,6 @@ export default function App() {
         <Route path="/about" element={<About />} />
       </Routes>
 
-      {/* 🔻 Footer SIEMPRE visible — ESTE ERA EL QUE FALTABA */}
       <Footer />
     </>
   );

@@ -24,6 +24,8 @@ export default function Stats() {
 
   if (!stats) return <p>Cargando estadísticas...</p>;
 
+  const isLightMode = document.body.classList.contains('light-mode');
+  
   const barData = [
     { name: "PC", juegos: stats.pcTotal },
     { name: "Mobile", juegos: stats.mobileTotal },
@@ -40,14 +42,13 @@ export default function Stats() {
     { name: "Pendientes", value: stats.pending }
   ];
 
-  const COLORS = ["#5ef1f2", "#c77dff"];
+  const COLORS = ["#5ef1f2", "#c77dff"]; 
 
   return (
     <div className="stats-container">
       <h3 style={{ textAlign: "center", textTransform: "uppercase", marginBottom: "20px" }}>
-      📊 ESTADISTICAS GENERALES
+        📊 ESTADISTICAS GENERALES
       </h3>
-
 
       <div className="charts">
 
@@ -59,50 +60,39 @@ export default function Stats() {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" style={{ fontWeight: 600, fill: "#333" }} />
               <YAxis style={{ fontWeight: 600, fill: "#333" }} />
-              <Tooltip 
-                contentStyle={{ backgroundColor: "#2c2c3e", border: "1px solid #555", borderRadius: 8 }}
-                itemStyle={{ color: "#fff", fontWeight: 500 }}
-                labelStyle={{ color: "#5ef1f2", fontWeight: 600 }}
-              />
+              <Tooltip wrapperClassName="custom-tooltip" />
               <Legend wrapperStyle={{ color: "#333", fontWeight: 600 }} />
               <Bar dataKey="juegos" fill="#5ef1f2" />
             </BarChart>
           </ResponsiveContainer>
         </div>
 
-       {/* Gráfico de líneas */}
-<div className="chart-card">
-  <h4 style={{ color: "#c77dff", marginBottom: "12px" }}>Juegos más jugados</h4>
-  <ResponsiveContainer width="100%" height={300}>
-    <LineChart data={lineData}>
-      <CartesianGrid strokeDasharray="3 3" />
-      
-      {/* ❌ Quitamos los nombres del eje X */}
-      <XAxis dataKey="game" tick={false} axisLine={false} />
-
-      <YAxis style={{ fontWeight: 600, fill: "#333" }} />
-      <Tooltip 
-        contentStyle={{ backgroundColor: "#2c2c3e", border: "1px solid #555", borderRadius: 8 }}
-        itemStyle={{ color: "#fff", fontWeight: 500 }}
-        labelStyle={{ color: "#5ef1f2", fontWeight: 600 }}
-      />
-      <Legend wrapperStyle={{ color: "#333", fontWeight: 600 }} />
-      <Line
-        type="monotone"
-        dataKey="hours"
-        stroke="#c77dff"
-        strokeWidth={3}
-        activeDot={{ r: 6 }}
-      >
-        <LabelList
-          dataKey="hours"
-          position="top"
-          formatter={(value) => `${value}h`}
-        />
-      </Line>
-    </LineChart>
-  </ResponsiveContainer>
-</div>
+        {/* Gráfico de líneas */}
+        <div className="chart-card">
+          <h4 style={{ color: "#c77dff", marginBottom: "12px" }}>Juegos más jugados</h4>
+          <ResponsiveContainer width="100%" height={300}>
+            <LineChart data={lineData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="game" tick={false} axisLine={false} />
+              <YAxis style={{ fontWeight: 600, fill: "#333" }} />
+              <Tooltip wrapperClassName="custom-tooltip" />
+              <Legend wrapperStyle={{ color: "#333", fontWeight: 600 }} />
+              <Line
+                type="monotone"
+                dataKey="hours"
+                stroke="#c77dff"
+                strokeWidth={3}
+                activeDot={{ r: 6 }}
+              >
+                <LabelList
+                  dataKey="hours"
+                  position="top"
+                  formatter={(value) => `${value}h`}
+                />
+              </Line>
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
 
         {/* Gráfico circular */}
         <div className="chart-card">
@@ -114,18 +104,14 @@ export default function Stats() {
                 dataKey="value"
                 cx="50%"
                 cy="50%"
-                outerRadius={100} // más grande para que no se corte
+                outerRadius={100}
                 label
               >
                 {pieData.map((_, i) => (
                   <Cell key={i} fill={COLORS[i % COLORS.length]} />
                 ))}
               </Pie>
-              <Tooltip 
-                contentStyle={{ backgroundColor: "#2c2c3e", border: "1px solid #555", borderRadius: 8 }}
-                itemStyle={{ color: "#fff", fontWeight: 500 }}
-                labelStyle={{ color: "#5ef1f2", fontWeight: 600 }}
-              />
+              <Tooltip wrapperClassName="custom-tooltip" />
               <Legend wrapperStyle={{ color: "#333", fontWeight: 600 }} />
             </PieChart>
           </ResponsiveContainer>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import api from '../utils/api';
 import ReviewItem from './ReviewItem';
-import './ReviewList.css'; // estilos opcionales
+import './ReviewList.css';
 
 export default function ReviewList({ gameId, newReview }) {
   const [reviews, setReviews] = useState([]);
@@ -22,7 +22,7 @@ export default function ReviewList({ gameId, newReview }) {
     if (gameId) {
       loadReviews();
     }
-  }, [gameId, newReview]); // 🔄 Se actualiza cuando creas una reseña
+  }, [gameId, newReview]); //Se actualiza cuando creas una reseña
 
   if (!reviews.length) return <p className="no-reviews">No hay reseñas aún.</p>;
 

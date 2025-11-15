@@ -3,6 +3,7 @@ import GameCard from './GameCard';
 import './GameList.css';
 
 export default function GameList({ games, setGames }) {
+    // Mensaje si no hay juegos
   if (!games.length) {
     return <p className='no-games'>No hay juegos guardados todavía 😅</p>;
   }

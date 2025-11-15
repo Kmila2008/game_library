@@ -1,5 +1,6 @@
 const Game = require('../models/Game');
 
+/* Buscar juegos según filtros */
 exports.search = async (req, res) => {
   try {
     const { q, genre, platform, completed } = req.query;
@@ -28,6 +29,8 @@ exports.getById = async (req, res) => {
 exports.create = async (req, res) => {
   try {
     const data = req.body;
+
+      // Generar slug automáticamente
     data.slug = (data.title || '')
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
@@ -39,7 +42,7 @@ exports.create = async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 };
-
+/* Actualizar un juego existente */
 exports.update = async (req, res) => {
   try {
     console.log("📩 Body recibido:", req.body);
@@ -48,11 +51,11 @@ exports.update = async (req, res) => {
     
     const data = req.body;
 
-    // 🔹 Forzar que hoursPlayed sea un número
+    // Forzar que hoursPlayed sea un número
     if (data.hoursPlayed !== undefined) {
       data.hoursPlayed = Number(data.hoursPlayed);
     }
-
+    // Actualizar slug si cambia el título
     if (data.title) {
       data.slug = data.title
         .toLowerCase()
@@ -69,6 +72,7 @@ exports.update = async (req, res) => {
   }
 };
 
+/* Eliminar un juego */
 exports.remove = async (req, res) => {
   try {
     const game = await Game.findByIdAndDelete(req.params.id);

@@ -5,7 +5,7 @@ import "./ReviewList.css";
 export default function ReviewList({ gameId, newReview }) {
   const [reviews, setReviews] = useState([]);
 
-  // 🔄 Cargar reseñas
+  // Cargar reseñas
   const loadReviews = async () => {
     try {
       const data = await api.get(`/reviews?gameId=${gameId}`);
@@ -15,7 +15,7 @@ export default function ReviewList({ gameId, newReview }) {
     }
   };
 
-  // 🗑️ Eliminar reseña
+  // Eliminar reseña
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm("¿Seguro que deseas eliminar esta reseña?");
     if (!confirmDelete) return;
@@ -29,7 +29,7 @@ export default function ReviewList({ gameId, newReview }) {
     }
   };
 
-  // ⚡ Cargar reseñas al montar o al crear una nueva
+  // Cargar reseñas al montar o al crear una nueva
   useEffect(() => {
     loadReviews();
   }, [gameId, newReview]);

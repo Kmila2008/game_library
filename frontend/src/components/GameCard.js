@@ -11,18 +11,17 @@ export default function GameCard({ game, setGames }) {
 
 
 
-  // Usar slug si existe en el juego, si no, generarlo desde title (no from "titulo")
+  // Navegar a detalles del juego
   const goToDetails = () => {
     const base = game.slug || game.title || game.titulo || '';
     const slug = String(base).toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9\-]/g, '');
     navigate(`/game/${slug}`, { state: { game } });
   };
 
-
-
   const [showModal, setShowModal] = useState(false);
-  const [newReview, setNewReview] = useState(null);
+  const [newReview, setNewReview] = useState(null); // Última reseña creada
 
+  // Cambiar completado
   const toggleCompleted = async () => {
     const updated = await api.put('/games/' + game._id, {
       ...game,
@@ -31,12 +30,14 @@ export default function GameCard({ game, setGames }) {
     setGames(prev => prev.map(p => p._id === updated._id ? updated : p));
   };
 
+  // Eliminar juego
   const remove = async () => {
     if (!confirm('¿Eliminar ' + (game.title || game.titulo || 'este juego') + '?')) return;
     await api.delete('/games/' + game._id);
     setGames(prev => prev.filter(p => p._id !== game._id));
   };
-
+  
+  // Crear reseña
   const handleCreateReview = async (reviewData) => {
     try {
       const saved = await api.post('/reviews', reviewData);
@@ -52,33 +53,33 @@ export default function GameCard({ game, setGames }) {
 
   return (
     <div className='card'>
+
+       {/* Imagen del juego */}
       <div
         className='cover'
         style={{ backgroundImage: `url(${game.coverUrl || ''})`, cursor: 'pointer' }}
         onClick={goToDetails}
       />
 
+       {/* Información */}
       <div className='info'>
         <h3 onClick={goToDetails} style={{ cursor: 'pointer' }}>
           {game.title || game.titulo}
         </h3>
         <p className='meta'>{game.genre || game.genero} • {game.platform || game.plataforma}</p>
        
-
+       {/* Botones */}
         <div className='actions'>
           <button onClick={toggleCompleted}>
             {game.completed ? 'Desmarcar completado' : 'Marcar como completado'}
           </button>
-
           <button onClick={remove} className="delete-game-btn">
           Eliminar
          </button>
         </div>
       </div>
 
-
-       
-
+      {/* Modal reseña */} 
       {showModal && (
         <div className="modal-overlay" onClick={() => setShowModal(false)}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>

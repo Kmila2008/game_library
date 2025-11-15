@@ -1,8 +1,5 @@
-/* =========================================================
-   📝 FORMULARIO DE RESEÑAS - ESTILOS GENERALES
-   ========================================================= */
-
-   .review-form {
+/* Contenedor */
+.review-form {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -14,16 +11,13 @@
     padding-right: 8px; /* Espacio para que no tape el scroll */
   }
   
-  /* =========================================================
-     🖋 CAMPOS DE ENTRADA (inputs y textarea)
-     ========================================================= */
-  
+/* Inputs y textarea */
   .review-form .input-field,
   .review-form .textarea-field {
     width: 100%;
-    background: #1a1027;             /* Fondo oscuro */
-    color: #fff;                     /* Texto blanco */
-    border: 1px solid #6b21a8;       /* Borde morado oscuro */
+    background: #1a1027;             
+    color: #fff;                
+    border: 1px solid #6b21a8;       
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 15px;
@@ -36,8 +30,8 @@
   /* Efecto al enfocar */
   .review-form .input-field:focus,
   .review-form .textarea-field:focus {
-    border-color: #b54bff; /* Morado claro */
-    box-shadow: 0 0 10px rgba(181, 75, 255, 0.6); /* Brillo suave */
+    border-color: #b54bff; 
+    box-shadow: 0 0 10px rgba(181, 75, 255, 0.6); 
   }
   
   /* En modo oscuro, el borde y brillo se vuelven blancos */
@@ -45,11 +39,10 @@
   body.dark-mode .review-form .textarea-field:focus,
   body.dark-mode .review-form input:focus,
   body.dark-mode .review-form textarea:focus {
-    border-color: #ffffff !important; /* Blanco brillante */
+    border-color: #ffffff !important; 
     box-shadow: 0 0 12px rgba(255, 255, 255, 0.9) !important;
   }
   
-  /* Efecto hover y focus (mismo estilo morado brillante) */
   .review-form .input-field:hover,
   .review-form .textarea-field:hover,
   .review-form .input-field:focus,
@@ -59,10 +52,7 @@
     transition: all 0.25s ease;
   }
   
-  /* =========================================================
-     ✍️ TEXTAREA Y INPUT NÚMERICO
-     ========================================================= */
-  
+/* Textarea */
   .textarea-field {
     min-height: 80px;
     resize: none; /* Desactiva el cambio de tamaño */
@@ -77,10 +67,7 @@
     color: #000;
   }
   
-  /* =========================================================
-     🎨 SCROLLBAR PERSONALIZADO
-     ========================================================= */
-  
+/* Scroll */
   .review-form::-webkit-scrollbar {
     width: 6px;
   }
@@ -98,28 +85,22 @@
     background: #a0a0a0;
   }
   
-  /* =========================================================
-     🏷️ ETIQUETAS Y TÍTULO DEL FORMULARIO
-     ========================================================= */
-  
+/* Título */
   .form-title {
     font-size: 22px;
     font-weight: 800;
     text-align: center;
     margin-top: 5px;
-    color: #222222; /* Texto oscuro */
+    color: #222222; 
   }
   
   .rating-container label,
   .review-form label {
     font-weight: 700;
-    color: #9d86f9; /* Morado oscuro */
+    color: #9d86f9;
   }
   
-  /* =========================================================
-     ⭐ ESTRELLAS DE CALIFICACIÓN
-     ========================================================= */
-  
+/* Estrellas */
   .stars {
     display: flex;
     gap: 4px; /* Espacio entre estrellas */
@@ -138,10 +119,7 @@
     transform: scale(1.2);
   }
   
-  /* =========================================================
-     🚀 BOTÓN ENVIAR
-     ========================================================= */
-  
+/* Botón enviar */
   .review-form .submit-btn {
     background: linear-gradient(90deg, #8f00ff, #c400ff);
     color: #fff !important; /* Texto blanco en ambos modos */
@@ -165,10 +143,7 @@
     box-shadow: none !important;
   }
   
-  /* =========================================================
-     ❌ BOTÓN CERRAR (X)
-     ========================================================= */
-  
+/* Botón cerrar */
   .review-form .close-btn {
     position: absolute;
     top: 8px;
@@ -194,10 +169,7 @@
     transform: scale(1.05);
   }
   
-  /* =========================================================
-     🌞 MODO DÍA (light-mode)
-     ========================================================= */
-  
+/* Modo día */
   body.light-mode .review-form {
     background-color: #ffffff;
     color: #1a1a1a;

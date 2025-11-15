@@ -1,3 +1,4 @@
+/* Fondo del modal */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -10,21 +11,24 @@
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
-  
+
+/* Contenido del modal */
   .modal-content {
     background: #ffffff; /* fondo modo día */
     padding: 2rem;
     border-radius: 16px;
-    width: 90%;        /* ocupa casi todo el ancho disponible */
-    max-width: 500px;  /* ancho máximo */
+    width: 90%;        
+    max-width: 500px;  
     box-sizing: border-box;
   }
   
+  /* Animación de entrada */
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  
+
+/* Botones dentro del modal/reseña */
   .review-form button {
     background-color: #007bff;
     color: white;
@@ -43,17 +47,14 @@
     position: relative;
   }
 
-
-
-
-  /* 🌞 Modo día - Modal */
+  /* Modo día */
   body.light-mode .modal-content {
     background-color: #ffffff;
     color: #1a1a1a;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
-  /* 🌙 Modo noche - Modal (ya perfecto según dices) */
+  /*Modo noche*/
 body.dark-mode .modal-content {
   background-color: #1a1a1a;
   color: #f5f5f5;

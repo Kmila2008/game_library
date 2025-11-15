@@ -11,24 +11,26 @@
   font-family: 'Poppins', sans-serif;
 }
 
+/* Campo de descripción editable */
 .description-field {
   width: 100%;
   color: #fff; /* texto blanco */
-  border: 2px solid #b54bff; /* borde morado por defecto */
+  border: 2px solid #b54bff; 
   border-radius: 10px;
   padding: 10px;
   font-size: 14px;
   margin-bottom: 10px;
-  transition: all 0.3s ease; /* transición suave */
+  transition: all 0.3s ease; 
   outline: none;
 }
 
-/* 💫 Efecto al enfocar */
+/* Efecto al enfocar */
 .description-field:focus {
-  border-color: #ffffff; /* borde blanco brillante */
-  box-shadow: 0 0 12px #ffffff; /* resplandor blanco */
+  border-color: #ffffff; 
+  box-shadow: 0 0 12px #ffffff; 
 }
 
+/* Encabezado del juego */
 .game-header {
   display: flex;
   align-items: center;
@@ -37,6 +39,7 @@
   flex-wrap: wrap;
 }
 
+/* Imagen circular del juego */
 .game-image-circle {
   width: 200px;
   height: 200px;
@@ -47,7 +50,7 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* === SECCIÓN PRINCIPAL DEL JUEGO === */
+/*SECCIÓN PRINCIPAL DEL JUEGO*/
 .game-main {
   display: flex;
   align-items: center;
@@ -73,6 +76,7 @@
   box-shadow: 0 0 20px rgba(180, 0, 255, 0.5);
 }
 
+/* Info del juego */
 .game-info {
   flex: 1;
   min-width: 300px;
@@ -92,6 +96,7 @@
   line-height: 1.5;
 }
 
+/* Botón Jugar */
 .play-button {
   background: linear-gradient(90deg, #8f00ff, #c400ff);
   color: #fff !important; /* Fuerza texto blanco en ambos modos */
@@ -109,7 +114,7 @@
   box-shadow: 0 0 25px rgba(255, 0, 255, 0.9);
 }
 
-/* === SECCIÓN DE TIEMPO JUGADO === */
+/* SECCIÓN DE TIEMPO JUGADO */
 .time-section {
   background: rgba(30, 0, 50, 0.8);
   border-radius: 18px;
@@ -142,7 +147,7 @@
   box-shadow: 0 0 10px #a54bff;
 }
 
-/* === SECCIÓN DE RESEÑAS === */
+/* SECCIÓN DE RESEÑAS */
 .reviews-section {
   background: rgba(25, 0, 40, 0.9);
   border-radius: 18px;
@@ -189,9 +194,8 @@
   box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
 }
 
-/* === RESEÑAS INDIVIDUALES === */
+/*  RESEÑAS INDIVIDUALES  */
 .review-card {
- 
   border-radius: 12px;
   padding: 1rem;
   margin-bottom: 1rem;
@@ -204,7 +208,7 @@
   box-shadow: 0 0 20px rgba(200, 0, 255, 0.7);
 }
 
-/* 💜 Editar descripción = mismo estilo que botón Jugar */
+/* Editar descripción */
 .edit-button {
   background: linear-gradient(90deg, #8f00ff, #c400ff);
   color: #fff !important; /* Fuerza texto blanco en ambos modos */
@@ -223,7 +227,7 @@
   box-shadow: 0 0 25px rgba(255, 0, 255, 0.9);
 }
 
-/* 🌀 Animación neón pulsante */
+/* Animación neón */
 @keyframes pulse {
   0% {
     box-shadow: 0 0 15px #a100ff, 0 0 30px #a100ff;
@@ -236,7 +240,7 @@
   }
 }
 
-/* 📍 Botones de guardar/cancelar */
+/* Botones de guardar/cancelar */
 .save-button,
 .cancel-button {
   background-color: #4b0082;
@@ -265,10 +269,10 @@
   margin-top: 10px;
 }
 
-/* 🖋️ Estilo del área de texto (editar descripción) */
+/* Estilo del área de texto*/
 textarea {
-  background-color: #1a002b; /* fondo oscuro */
-  color: #ffffff; /* texto blanco */
+  background-color: #1a002b; 
+  color: #ffff;
   border: 2px solid #a100ff; /* borde neón */
   border-radius: 10px;
   padding: 10px;
@@ -281,14 +285,10 @@ textarea {
 }
 
 .game-info p {
-  margin-bottom: 30px; /* antes de los botones */
+  margin-bottom: 30px; 
 }
 
-
-
-
- /* 🌞 Modo día - GameCard */
- * 🔹 Contenedores principales blancos en modo día */
+ /* Modo día - GameCard */
 body.light-mode .game-detail-page,
 body.light-mode .game-main,
 body.light-mode .time-section,
@@ -300,7 +300,7 @@ body.light-mode .review-card {
 }
 
 
-/* 🔹 Ajustar colores internos para que se vean sobre fondo blanco */
+/* Ajustar colores internos para que se vean sobre fondo blanco */
 body.light-mode .game-info p,
 body.light-mode .play-button,
 body.light-mode .edit-button,
@@ -318,7 +318,7 @@ body.light-mode .reviews-section button {
 
 
 body.light-mode .game-detail-page .game-main {
- background: #ffffff !important;
+ background: #ffffff;
 }
 
 body.dark-mode .game-detail-page,
@@ -329,4 +329,62 @@ body.dark-mode .review-card {
   background: #121212;
   color: #f5f5f5;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Botón pequeño redondo "URL" en morado con animación ligera - modo oscuro */
+.edit-play-url-button {
+  padding: 2px 6px;
+  font-size: 0.7rem;
+  border-radius: 50%;
+  border: 1px solid #9b59d1;
+  background-color: #9b59d1; 
+  color: #fff;
+  cursor: pointer;
+  min-width: 28px;
+  min-height: 28px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.edit-play-url-button:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 8px #b58ff0, 0 0 12px #d19cff; 
+}
+
+/* Botón ✔ guardar URL en modo oscuro y brillante */
+.save-play-url-btn {
+  padding: 2px 6px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  background-color: #8e44ad; 
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.save-play-url-btn:hover {
+  box-shadow: 0 0 10px #b58ff0;
+  transform: scale(1.1);
+}
+
+/* Botón ✖ cancelar URL con animación brillante */
+.cancel-play-url-btn {
+  padding: 2px 6px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  background-color: #8e44ad; 
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.cancel-play-url-btn:hover {
+  box-shadow: 0 0 10px #ff6f6f;
+  transform: scale(1.1);
+}
+
+/* Contenedor de los botones ✔ y ✖ para separarlos horizontalmente */
+.play-url-btn-group {
+  display: flex;
+  gap: 3px; 
+  margin-top: 5px; 
 }

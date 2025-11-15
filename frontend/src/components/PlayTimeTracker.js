@@ -6,13 +6,13 @@ export default function PlayTimeTracker({ gameId, gameTitle }) {
   const [hours, setHours] = useState(0);
   const [saving, setSaving] = useState(false);
 
-  // 🔹 Cargar horas desde MongoDB
+  //Cargar horas desde MongoDB
   useEffect(() => {
     const fetchHours = async () => {
       if (!gameId) return;
       try {
         const res = await api.get(`/games/${gameId}`);
-        // ✅ Aquí la respuesta viene en res.data
+        
         setHours(res.hoursPlayed || 0);
       } catch (err) {
         console.error("Error cargando horas:", err);
@@ -21,7 +21,7 @@ export default function PlayTimeTracker({ gameId, gameTitle }) {
     fetchHours();
   }, [gameId]);
 
-  // 🔹 Actualizar horas en MongoDB
+  //Actualizar horas en MongoDB
   const updateHours = async (newHours) => {
     if (!gameId) return;
     setSaving(true);
@@ -36,7 +36,7 @@ export default function PlayTimeTracker({ gameId, gameTitle }) {
     }
   };
 
-  // 🔹 Nivel de jugador
+  // Nivel de jugador
   const getCharacter = () => {
     if (hours < 5) return { img: "/avatars/noob.png", label: "🧢 Novato" };
     if (hours < 10) return { img: "/avatars/intermediate.png", label: "⚡ Intermedio" };

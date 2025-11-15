@@ -1,3 +1,4 @@
+/* CONTENEDOR PRINCIPAL DEL FOOTER */
 .footer-section {
   width: 100%;
   padding: 2rem 0;
@@ -6,6 +7,7 @@
   justify-content: center;
 }
 
+/* CONTENIDO INTERNO DEL FOOTER */
 .section-content {
   text-align: center;
   color: #dcd0ff;
@@ -17,6 +19,7 @@
   color: #bda7ff;
 }
 
+/* LISTA DE ICONOS SOCIALES */
 .social-link-list {
   display: flex;
   justify-content: center;
@@ -35,6 +38,7 @@
   transform: translateY(-3px);
 }
 
+/* TEXTO DE POLÍTICAS */
 .policy-text {
   font-size: 0.9rem;
   opacity: 0.8;
@@ -50,12 +54,13 @@
   color: #ffffff;
 }
 
+/* SEPARADOR ENTRE LINKS */
 .separator {
   margin: 0 0.5rem;
   color: #bda7ff;
 }
 
-/* 🌞 FOOTER — Modo Día (sin línea) */
+/* MODO DÍA */
 body.light-mode .footer-section {
   
     background: #f3e8ff; /* morado pastel claro */
@@ -76,7 +81,7 @@ body.light-mode .social-link {
 }
 
 body.light-mode .social-link:hover {
-  color: #9333ea;
+  color: #c399ff;
 }
 
 body.light-mode .policy-text {

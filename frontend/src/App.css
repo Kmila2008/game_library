@@ -1,3 +1,4 @@
+/* Reset y tipografía */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,7 +12,7 @@ html, body, #root {
   background: #3e1878;
 }
 
-/* 🔹 Contenedor principal */
+/* Contenedor principal */
 .home {
   display: flex;
   flex-direction: column;
@@ -19,6 +20,7 @@ html, body, #root {
   width: 100%;
 }
 
+/* Controles de búsqueda y botones */
 .controls {
   display: flex;
   justify-content: center;
@@ -46,27 +48,22 @@ html, body, #root {
   background: #7dd3fc;
 }
 
-/* 🔹 Main con sidebar y contenido */
+/* Main con sidebar y contenido */
 .main {
   display: flex;
-  flex: 1; /* ocupa todo el alto disponible */
+  flex: 1;
   gap: 16px;
 }
 
-.main {
-  display: flex;
-  flex: 1; /* ocupa todo el alto disponible */
-  gap: 16px;
-}
-
+/* Contenido principal */
 .content {
-  flex: 1; /* ocupa todo el espacio restante */
+  flex: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* tu galería */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
 }
 
-/* 🔹 Grid de juegos */
+/* Grid de juegos */
 .game-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -74,6 +71,7 @@ html, body, #root {
   width: 100%;
 }
 
+/* Tarjeta de juego */
 .card {
   background: #334155;
   border-radius: 12px;
@@ -81,7 +79,7 @@ html, body, #root {
   display: flex;
   flex-direction: column;
   transition: all 0.3s ease;
-  aspect-ratio: 4/5; /* un poco más alta que ancha */
+  aspect-ratio: 4/5;
 }
 
 .card:hover {
@@ -89,6 +87,7 @@ html, body, #root {
   box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
 }
 
+/* Imagen de portada */
 .cover {
   width: 100%;
   height: 60%;
@@ -98,6 +97,7 @@ html, body, #root {
   border-radius: 12px 12px 0 0;
 }
 
+/* Información de la tarjeta */
 .info {
   padding: 12px;
   display: flex;
@@ -116,6 +116,7 @@ html, body, #root {
   color: #cbd5e1;
 }
 
+/* Acciones de la tarjeta */
 .actions {
   display: flex;
   flex-wrap: wrap;
@@ -139,7 +140,7 @@ html, body, #root {
   background-color: #7dd3fc;
 }
 
-/* 🔹 Modal */
+/* Modal */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -161,18 +162,20 @@ html, body, #root {
   width: 90%;
 }
 
+/* Evitar scroll horizontal */
 body {
   overflow-x: hidden;
 }
 
-
-/* 🌞 MODO DÍA (light-mode) */
+/* ========================
+   Light mode
+   ======================== */
 body.light-mode {
   background-color: #ffffff;
   color: #1a1a1a;
 }
 
-/* Navbar morado suave */
+/* Navbar */
 body.light-mode .navbar {
   background-color: #a855f7;
   box-shadow: 0 2px 8px rgba(168, 85, 247, 0.25);
@@ -186,6 +189,7 @@ body.light-mode .nav-links a {
   color: #fff;
 }
 
+/* Buscador */
 body.light-mode .search-form input {
   background-color: #f3f3f3;
   color: #222;
@@ -200,7 +204,7 @@ body.light-mode .search-form button:hover {
   background-color: #a855f7;
 }
 
-/* Sidebar, contenido y panel extra en blanco */
+/* Sidebar y paneles */
 body.light-mode .dashboard {
   background-color: #ffffff;
 }
@@ -212,7 +216,7 @@ body.light-mode .extra {
   color: #1a1a1a;
 }
 
-/* Tarjetas de juegos */
+/* Tarjetas */
 body.light-mode .card {
   background-color: #f9f9f9;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
@@ -249,7 +253,7 @@ body.light-mode input:focus {
   box-shadow: 0 0 5px rgba(168, 85, 247, 0.4);
 }
 
-/* 🌞 Fondo blanco global en modo día */
+/* Fondos globales */
 body.light-mode,
 body.light-mode #root,
 body.light-mode .home,
@@ -265,7 +269,7 @@ body.light-mode .game-details {
   color: #1a1a1a !important;
 }
 
-/* 🧩 Títulos y texto en modo día */
+/* Texto global */
 body.light-mode h1,
 body.light-mode h2,
 body.light-mode h3,
@@ -275,20 +279,19 @@ body.light-mode span {
   color: #1a1a1a !important;
 }
 
-/* 🎮 GameDetails en modo día */
+/* GameDetails y About */
 body.light-mode .game-details {
   background-color: #ffffff;
   color: #1a1a1a;
   box-shadow: none;
 }
 
-/* ℹ️ About en modo día */
 body.light-mode .about-page {
   background-color: #ffffff;
   color: #1a1a1a;
 }
 
-/* ✨ Tarjetas (GameCard) */
+/* Tarjetas GameCard */
 body.light-mode .card {
   background-color: #f9f9f9;
   color: #111;
@@ -299,7 +302,7 @@ body.light-mode .card:hover {
   box-shadow: 0 4px 10px rgba(168, 85, 247, 0.25);
 }
 
-/* 🟣 Botones */
+/* Botones globales */
 body.light-mode button {
   background-color: #a855f7;
   color: #fff;
@@ -310,7 +313,7 @@ body.light-mode button:hover {
   background-color: #9333ea;
 }
 
-/* 🖋 Inputs y formularios */
+/* Inputs globales */
 body.light-mode input,
 body.light-mode textarea {
   background-color: #fff;
@@ -324,6 +327,7 @@ body.light-mode textarea:focus {
   box-shadow: 0 0 6px rgba(168, 85, 247, 0.4);
 }
 
+/* Contenedor de la app */
 .app-container {
   min-height: 100vh;
   display: flex;
@@ -334,11 +338,10 @@ main, .dashboard, .home {
   flex: 1;
 }
 
-
-
-
-
-
-
-
-
+/* Imagen sidebar */
+.sidebar-image {
+  display: block;
+  margin: 200px auto 0;
+  width: 300px;    
+  height: auto;
+}

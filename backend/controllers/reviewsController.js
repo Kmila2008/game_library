@@ -1,5 +1,6 @@
 const Review = require('../models/Review');
 
+/* Buscar reseñas según filtros */
 exports.search = async (req, res) => {
   try {
     const { q, gameId } = req.query;
@@ -14,6 +15,7 @@ exports.search = async (req, res) => {
     }
 };
 
+/* Crear una nueva reseña */
 exports.create = async (req, res) => {
   try {
     const { game, title, comment } = req.body;
@@ -25,7 +27,7 @@ exports.create = async (req, res) => {
       game,
       title,
       comment,
-      author: 'Anónimo', // TEMPORAL mientras no hay auth
+      author: 'Anónimo',
       rating: 0
     });
 
@@ -38,6 +40,7 @@ exports.create = async (req, res) => {
   }
 };
 
+/* Actualizar una reseña existente */
 exports.update = async (req, res) => {
   try {
     const review = await Review.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -47,6 +50,7 @@ exports.update = async (req, res) => {
   }
 };
 
+/* Eliminar una reseña */
 exports.remove = async (req, res) => {
   try {
     const review = await Review.findByIdAndDelete(req.params.id);

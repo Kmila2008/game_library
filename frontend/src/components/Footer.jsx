@@ -5,12 +5,17 @@ import { FaInstagram, FaLinkedin, FaBehance } from "react-icons/fa";
 export default function Footer() {
   return (
     <footer className="footer-section">
+
+       
+      {/* CONTENEDOR PRINCIPAL */}
       <div className="section-content">
 
+      {/* COPYRIGHT */}
         <p className="copyright-text">
           ©2025 Game Library — by Camila
         </p>
 
+      {/* REDES SOCIALES */}
         <div className="social-link-list">
           <a
             href="https://www.instagram.com/aliz._.vm?igsh=cTE5ZmtqengxeTJ5"
@@ -39,7 +44,8 @@ export default function Footer() {
             <FaBehance />
           </a>
         </div>
-
+        
+      {/* POLÍTICAS */}
         <p className="policy-text">
           <a href="#" className="policy-link">Privacy Policy</a>
           <span className="separator"></span>

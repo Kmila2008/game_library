@@ -1,7 +1,7 @@
 /* CONTENEDOR PRINCIPAL */
 .dashboard {
-  display: flex;               /* <-- Antes faltaba flex-direction */
-  flex-direction: row;         /* Cada sección a la izquierda y contenido a la derecha */
+  display: flex;              
+  flex-direction: row;          /* Sidebar a la izquierda, contenido a la derecha */
   gap: 0rem;
   padding-left: 1.5rem;
   min-height: auto;
@@ -54,7 +54,7 @@
   box-shadow: 0 0 15px rgba(95, 241, 242, 0.3);
 }
 
-/* FOOTER — ahora sí podrá aparecer siempre */
+/* FOOTER */
 footer.footer {
   flex-shrink: 0;
 }

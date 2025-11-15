@@ -7,10 +7,12 @@ export default function Navbar({ onSearch, darkMode, setDarkMode }) {
   const [query, setQuery] = useState("");
   const location = useLocation();
 
+  // Toggle del buscador
   const handleSearchToggle = () => {
     setSearchOpen(!searchOpen);
   };
 
+  // Enviar búsqueda
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (onSearch) onSearch(query);
@@ -18,6 +20,7 @@ export default function Navbar({ onSearch, darkMode, setDarkMode }) {
 
   return (
     <nav className="navbar">
+      {/* Izquierda: logo + links */}
       <div className="nav-left">
         <Link to="/" className="logo">🎮 GameTracker</Link>
         <div className="nav-links">
@@ -26,8 +29,10 @@ export default function Navbar({ onSearch, darkMode, setDarkMode }) {
         </div>
       </div>
 
+     
       <div className="nav-right">
-        {/* 🔍 Mostrar el buscador solo en la ruta "/" */}
+
+       
         {location.pathname === "/" && (
           <>
             <button className="search-toggle" onClick={handleSearchToggle}>
@@ -48,7 +53,7 @@ export default function Navbar({ onSearch, darkMode, setDarkMode }) {
           </>
         )}
 
-        {/* 🌙 Botón modo oscuro */}
+        {/* Toggle modo oscuro */}
         <button
           className="dark-mode-toggle"
           onClick={() => setDarkMode(!darkMode)}
@@ -56,7 +61,7 @@ export default function Navbar({ onSearch, darkMode, setDarkMode }) {
           {darkMode ? "☀️" : "🌙"}
         </button>
 
-        {/* 🧍 Avatar */}
+        {/* Avatar */}
         <img
           src="https://via.placeholder.com/35"
           alt="Avatar"
